@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 《復仇者聯盟：終局之戰》三模態憤怒（Angry）情緒辨識系統
-最終可信版本（2025）—— 嚴格排除資料洩漏、完整學術輸出規範
+
 """
 
 #目前
@@ -33,7 +33,7 @@ import shap  # 用於 PyTorch 特徵重要性
 import warnings
 warnings.filterwarnings("ignore")
 
-# 定義 device（全局使用，避免未定義錯誤）
+# 定義 device
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f"使用裝置：{device}")
 
@@ -54,7 +54,7 @@ SUBTITLE_CSV = r"C:\Users\user\Desktop\output\第一次最終分類器資料\字
 AUDIO_CSV = r"C:\Users\user\Desktop\output\第一次最終分類器資料\Audio feature\X_features.csv"
 ANNOTATION_CSV = r"C:\Users\user\Desktop\output\第一次最終分類器資料\annotations.csv"
 
-print("《復仇者聯盟：終局之戰》三模態憤怒（Angry）情緒辨識系統 —— 最終可信版本")
+print("《復仇者聯盟：終局之戰》三模態憤怒（Angry）情緒辨識系統 ")
 print("="*78)
 
 # ==============================================================
@@ -95,9 +95,9 @@ angry_ratio = gt.sum() / total_seconds * 100
 print(f" 完成：人工標註憤怒時長 {gt.sum()//60} 分 {gt.sum()%60} 秒（占全片 {angry_ratio:.2f}%）")
 
 # ==============================================================
-# 3. 建置三模態物理特徵資料庫
+# 3. 建置三模態特徵資料庫
 # ==============================================================
-print("步驟 2：建置視覺、字幕、音訊三模態秒級特徵資料庫")
+print("步驟 2：建置視覺、字幕、音訊三模態特徵資料庫")
 df_vis = pd.read_csv(VISUAL_CSV)
 df_vis["second"] = (df_vis["FrameID"] // 30).astype(int)
 
