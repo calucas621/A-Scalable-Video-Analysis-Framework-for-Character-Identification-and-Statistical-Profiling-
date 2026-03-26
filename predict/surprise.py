@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 《復仇者聯盟：終局之戰》三模態驚訝（Surprise）情緒辨識系統
-最終可信版本
+
 """
 import os
 import joblib
